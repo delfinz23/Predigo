@@ -19,6 +19,8 @@ https://medium.com/@seifeddinerajhi/simplify-kubernetes-management-with-infrastr
 https://www.veeam.com/blog/infrastructure-as-code-iac-eks.html
 https://github.com/squareops/terraform-aws-eks-bootstrap/tree/main
 
+https://www.youtube.com/watch?v=7wRqtBMS6E0
+
 
 a) -- IaC to Deploy EKS(Elastic Kubernetes Service) K8s(Kubernetes) cluster on AWS using Terraform
 Requisitos basicos(herramientas clientes): terraform, kubectl y aws-iam-auth
