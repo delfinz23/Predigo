@@ -21,4 +21,4 @@ https://github.com/squareops/terraform-aws-eks-bootstrap/tree/main
 
 
 a) -- IaC to Deploy EKS(Elastic Kubernetes Service) K8s(Kubernetes) cluster on AWS using Terraform
-Requisitos basicos(herramientas clientes): terraform, kubectl y aws-iam-aut
+Requisitos basicos(herramientas clientes): terraform, kubectl y aws-iam-auth
