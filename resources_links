@@ -20,8 +20,7 @@ https://www.veeam.com/blog/infrastructure-as-code-iac-eks.html
 https://github.com/squareops/terraform-aws-eks-bootstrap/tree/main
 
 https://www.youtube.com/watch?v=7wRqtBMS6E0
-
-https://github.com/terraform-aws-modules/terraform-aws-eks
+https://registry.terraform.io/namespaces/terraform-aws-modules
 
 
 a) -- IaC to Deploy EKS(Elastic Kubernetes Service) K8s(Kubernetes) cluster on AWS using Terraform
