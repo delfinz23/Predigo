@@ -35,3 +35,4 @@ Requisitos basicos(herramientas clientes): terraform, kubectl y aws-iam-auth
 https://developer.hashicorp.com/terraform/tutorials/networking/multicloud-kubernetes
 
 https://learnk8s.io/terraform-eks
+https://github.com/k-mitevski/terraform-k8s/tree/master/01_terraform_eks
