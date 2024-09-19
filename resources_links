@@ -30,3 +30,6 @@ https://github.com/ascode-com/wiki/tree/main/terraform-eks
 
 a) -- IaC to Deploy EKS(Elastic Kubernetes Service) K8s(Kubernetes) cluster on AWS using Terraform
 Requisitos basicos(herramientas clientes): terraform, kubectl y aws-iam-auth
+
+
+https://developer.hashicorp.com/terraform/tutorials/networking/multicloud-kubernetes
