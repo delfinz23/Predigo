@@ -37,3 +37,7 @@ https://developer.hashicorp.com/terraform/tutorials/networking/multicloud-kubern
 https://learnk8s.io/kubernetes-terraform
 https://learnk8s.io/terraform-eks
 https://github.com/k-mitevski/terraform-k8s/tree/master/01_terraform_eks
+
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/managed_service_identity
+https://www.youtube.com/watch?v=QPx6LJq1H6I
+
