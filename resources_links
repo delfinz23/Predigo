@@ -26,6 +26,9 @@ https://github.com/terraform-aws-modules/terraform-aws-eks/tree/v18.14.0/example
 https://github.com/ascode-com/wiki/tree/main/terraform-eks
 
 
+https://awslabs.github.io/data-on-eks/docs/blueprints/distributed-databases/cloudnative-postgres
+
+
 
 
 a) -- IaC to Deploy EKS(Elastic Kubernetes Service) K8s(Kubernetes) cluster on AWS using Terraform
