@@ -29,6 +29,9 @@ https://github.com/ascode-com/wiki/tree/main/terraform-eks
 https://www.youtube.com/watch?v=Y813XfhNDj0
 https://awslabs.github.io/data-on-eks/docs/blueprints/distributed-databases/cloudnative-postgres
 
+https://hector-reyesaleman.medium.com/how-to-terraform-the-creation-of-multiple-postgresql-databases-roles-and-grants-on-an-aws-rds-221e3c80d5f4
+https://github.com/terraform-aws-modules/terraform-aws-rds
+
 
 
 
