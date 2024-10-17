@@ -1,5 +1,3 @@
-
-
 DROP TABLE perfil ;
 
 create table perfil (
@@ -135,6 +133,3 @@ create table detalle_datasets (
 	plazo_solicitud integer not null,
 	monto_solicitud decimal(22,4) not null	
 	)
-
-
-
