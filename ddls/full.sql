@@ -1,12 +1,18 @@
-DROP TABLE perfil ;
+drop table if exists detalle_datasets ;  
+
+drop table if exists datasets ;   
+
+DROP TABLE if exists accesos ;
+
+DROP table if exists usuarios ;   
+
+DROP TABLE if exists perfil ;
 
 create table perfil (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(50) UNIQUE NOT null,
     descripcion VARCHAR(255) NOT NULL
     );
-   
-DROP table usuarios ;   
 
 CREATE TABLE usuarios (
     id SERIAL PRIMARY KEY,
@@ -21,8 +27,6 @@ CREATE TABLE usuarios (
 );
 
 
-DROP TABLE accesos ;
-
 
 CREATE TABLE accesos (
     id SERIAL PRIMARY KEY,
@@ -32,8 +36,66 @@ CREATE TABLE accesos (
     motivo_fallo VARCHAR(255)
 );
 
-drop table datasets ;
 
+
+drop table if exists ciudad;
+
+drop table if exists departamento ;
+
+   
+create table departamento (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(50) UNIQUE NOT null,
+    descripcion VARCHAR(255) NOT NULL
+    );
+
+   
+create table ciudad (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(50) UNIQUE NOT null,
+    descripcion VARCHAR(255) NOT null,
+    id_departamento INTEGER REFERENCES departamento(id) ON DELETE CASCADE
+    );  
+
+   
+
+  
+
+   
+drop table if exists nivel_academico ;
+
+create table nivel_academico (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(50) UNIQUE NOT null,
+    descripcion VARCHAR(255) NOT NULL
+    );
+
+drop table if exists estado_civil ;  
+   
+create table estado_civil (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(50) UNIQUE NOT null,
+    descripcion VARCHAR(255) NOT NULL
+    );    
+   
+drop table if exists actividad_economica ;
+   
+create table actividad_economica (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(50) UNIQUE NOT null,
+    descripcion VARCHAR(255) NOT NULL
+    );   
+
+   
+drop table if exists calificacion_sistema_financiero ;
+   
+create table calificacion_sistema_financiero (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(50) UNIQUE NOT null,
+    descripcion VARCHAR(255) NOT NULL
+    );       
+    
+   
 create table datasets (
 	id SERIAL PRIMARY KEY,
 	nombre VARCHAR(50) UNIQUE NOT null,
@@ -45,62 +107,7 @@ create table datasets (
 	fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	fecha_baja TIMESTAMP
 	);
-	
 
-drop table nivel_academico ;
-
-create table nivel_academico (
-    id SERIAL PRIMARY KEY,
-    nombre VARCHAR(50) UNIQUE NOT null,
-    descripcion VARCHAR(255) NOT NULL
-    );
-
-drop table estado_civil ;  
-   
-create table estado_civil (
-    id SERIAL PRIMARY KEY,
-    nombre VARCHAR(50) UNIQUE NOT null,
-    descripcion VARCHAR(255) NOT NULL
-    );    
-   
-drop table actividad_economica ;
-   
-create table actividad_economica (
-    id SERIAL PRIMARY KEY,
-    nombre VARCHAR(50) UNIQUE NOT null,
-    descripcion VARCHAR(255) NOT NULL
-    );   
-
-   
-drop table calificacion_sistema_financiero ;
-   
-create table calificacion_sistema_financiero (
-    id SERIAL PRIMARY KEY,
-    nombre VARCHAR(50) UNIQUE NOT null,
-    descripcion VARCHAR(255) NOT NULL
-    );     
-   
-
-drop table departamento ;
-   
-create table departamento (
-    id SERIAL PRIMARY KEY,
-    nombre VARCHAR(50) UNIQUE NOT null,
-    descripcion VARCHAR(255) NOT NULL
-    );     
-   
-
-drop table ciudad;
-   
-create table ciudad (
-    id SERIAL PRIMARY KEY,
-    nombre VARCHAR(50) UNIQUE NOT null,
-    descripcion VARCHAR(255) NOT null,
-    id_departamento INTEGER REFERENCES departamento(id) ON DELETE CASCADE
-    );   
-	
-   
-drop table detalle_datasets ;    
    
 create table detalle_datasets (
 	id SERIAL PRIMARY KEY,
@@ -131,5 +138,5 @@ create table detalle_datasets (
 	anhos_aporte_jubilatorio integer not null,
 	total_ingresos decimal(22,4) not null,
 	plazo_solicitud integer not null,
-	monto_solicitud decimal(22,4) not null	
-	)
+	monto_solicitud decimal(22,4) not null
+	);
