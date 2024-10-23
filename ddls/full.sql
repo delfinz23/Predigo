@@ -1,3 +1,7 @@
+drop database if exists predigo ;
+
+CREATE DATABASE predigo ;
+
 drop table if exists detalle_datasets ;  
 
 drop table if exists datasets ;   
@@ -140,3 +144,4 @@ create table detalle_datasets (
 	plazo_solicitud integer not null,
 	monto_solicitud decimal(22,4) not null
 	);
+   
