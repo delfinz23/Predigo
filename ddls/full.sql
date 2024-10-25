@@ -14,13 +14,13 @@ DROP TABLE if exists perfil ;
 
 create table perfil (
     id SERIAL PRIMARY KEY,
-    nombre VARCHAR(50) UNIQUE NOT null,
+    nombre VARCHAR(50) UNIQUE NOT null, -- Cliente, Administrador
     descripcion VARCHAR(255) NOT NULL
     );
 
 CREATE TABLE usuarios (
     id SERIAL PRIMARY KEY,
-    nombre_usuario VARCHAR(12) UNIQUE NOT NULL,
+    usuario VARCHAR(50) UNIQUE NOT NULL,
     nombre_completo VARCHAR(255) NOT NULL,
     id_perfil INTEGER REFERENCES perfil(id) ON DELETE CASCADE,
     activo boolean not null,
@@ -104,7 +104,7 @@ create table datasets (
 	id SERIAL PRIMARY KEY,
 	nombre VARCHAR(50) UNIQUE NOT null,
 	descripcion VARCHAR(255) NOT NULL,
-	tipo varchar(50) not null,
+	tipo varchar(50) not null, -- trainning, test, validacion (muestra interna)
 	id_usuario INTEGER REFERENCES usuarios(id) ON DELETE CASCADE,
 	activo boolean not null,
 	informacion_eda boolean not null,
@@ -140,4 +140,6 @@ create table detalle_datasets (
 	plazo_solicitud integer not null,
 	monto_solicitud decimal(22,4) not null
 	);
-   
+
+create table experimentos (
+	id SERIAL PRIMARY KEY,
