@@ -116,10 +116,6 @@ create table datasets (
 create table detalle_datasets (
 	id SERIAL PRIMARY KEY,
 	id_dataset INTEGER REFERENCES datasets(id) ON DELETE CASCADE,
-	activo boolean not null,
-	informacion_eda boolean not null,
-	fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	fecha_baja TIMESTAMP,
 	identificador VARCHAR(50) UNIQUE NOT NULL,
 	marca_objetivo boolean not null,	
 	edad INTEGER NOT NULL,
