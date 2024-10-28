@@ -3,7 +3,13 @@ drop database if exists predigo ;
 
 CREATE DATABASE predigo ;
 
+drop table if exists proyectos_experimentos ;
+
+drop table if exists proyectos_datasets ;
+
 drop table if exists proyectos ;
+
+drop table if exists experimentos ;
 
 drop table if exists detalle_datasets ;  
 
