@@ -1,6 +1,9 @@
+
 drop database if exists predigo ;
 
 CREATE DATABASE predigo ;
+
+drop table if exists proyectos ;
 
 drop table if exists detalle_datasets ;  
 
@@ -20,7 +23,7 @@ create table perfil (
 
 CREATE TABLE usuarios (
     id SERIAL PRIMARY KEY,
-    usuario VARCHAR(50) UNIQUE NOT NULL,
+    nombre_usuario VARCHAR(12) UNIQUE NOT NULL,
     nombre_completo VARCHAR(255) NOT NULL,
     id_perfil INTEGER REFERENCES perfil(id) ON DELETE CASCADE,
     activo boolean not null,
@@ -104,13 +107,17 @@ create table datasets (
 	id SERIAL PRIMARY KEY,
 	nombre VARCHAR(50) UNIQUE NOT null,
 	descripcion VARCHAR(255) NOT NULL,
-	tipo varchar(50) not null, -- trainning, test, validacion (muestra interna)
-	id_usuario INTEGER REFERENCES usuarios(id) ON DELETE CASCADE,
+	tipo varchar(50) not null, --training, test, validation (muestra interna)
+	id_usuario INTEGER REFERENCES usuarios(id) ON DELETE cascade not NULL,
 	activo boolean not null,
 	informacion_eda boolean not null,
+	ubicacion_informacion_eda varchar(1000) not null, --seria el anotador o pdf generado
 	fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	fecha_baja TIMESTAMP
 	);
+
+
+
 
    
 create table detalle_datasets (
@@ -141,5 +148,74 @@ create table detalle_datasets (
 	monto_solicitud decimal(22,4) not null
 	);
 
+
 create table experimentos (
 	id SERIAL PRIMARY KEY,
+	nombre VARCHAR(50) UNIQUE NOT null,
+	descripcion VARCHAR(255) NOT NULL,
+	id_usuario INTEGER REFERENCES usuarios(id) ON DELETE cascade not NULL,
+	id_dataset_training INTEGER REFERENCES datasets(id) ON DELETE cascade not NULL,
+	id_dataset_test INTEGER REFERENCES datasets(id) ON delete cascade,
+	activo boolean not null,
+	estado varchar(50) not null, --INICIADO, EN CURSO, FINALIZADO OK, FINALIZADO NO OK
+	fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	fecha_baja TIMESTAMP,
+	
+	tamanho_datos INTEGER not null,
+	tamanho_buenos INTEGER not null,
+	tamanho_malos INTEGER not null,
+	tamanho_training_datos INTEGER not null,
+	tamanho_test_datos INTEGER not null,
+	
+
+	aplicar_automl boolean not null,
+	aplicar_interpretabilidad boolean not null,
+	tipo_computacion varchar(3) not null, --CPU, GPU, QPU
+	maxima_cantidad_iteraciones INTEGER not null,
+	cantidad_iteraciones INTEGER not null,
+	maximo_tiempo_entrenamiento INTEGER not null,
+	tiempo_entrenamiento INTEGER not null,
+	calidad_modelo_esperado INTEGER not null,
+	calidad_modelo INTEGER not null,
+
+	modelo_seleccionado varchar(100),
+	accuracy decimal(12,8) ,
+	precision decimal(12,8),
+	recall decimal(12,8) ,
+	f1_score decimal(12,8) ,
+	
+	informacion_tecnica_modelo boolean ,--el modelo se contruyo exitosamente
+	ubicacion_informacion_tecnica_modelo varchar(1000), --seria el anotador o pdf generado
+	fecha_creacion_modelo TIMESTAMP,
+	ubicacion_modelo varchar(1000),
+	modelo_deployado boolean ,--si el modelo que se construyo exitosamente ya se encuentra disponible como servicio
+	ubicacion_servicio varchar(1000),
+	fecha_creacion_servicio TIMESTAMP
+	);
+
+
+
+
+create table proyectos (
+	id SERIAL PRIMARY KEY,
+	nombre VARCHAR(50) UNIQUE NOT null,
+	descripcion VARCHAR(255) NOT NULL,
+	id_usuario INTEGER REFERENCES usuarios(id) ON DELETE cascade not NULL,
+	activo boolean not null,
+	fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	fecha_baja TIMESTAMP
+	);
+
+
+create table proyectos_datasets (
+	id_proyecto INTEGER REFERENCES proyectos(id) ON DELETE cascade not NULL,
+	id_dataset  INTEGER REFERENCES datasets(id) ON DELETE cascade not null,
+	fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	);
+
+
+create table proyectos_experimentos (
+	id_proyecto INTEGER REFERENCES proyectos(id) ON DELETE cascade not NULL,
+	id_experimento  INTEGER REFERENCES experimentos(id) ON DELETE cascade not null,
+	fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	);
