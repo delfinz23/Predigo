@@ -191,11 +191,11 @@ create table experimentos (
 	f1_score decimal(12,8) ,
 	
 	informacion_tecnica_modelo boolean ,--el modelo se contruyo exitosamente
-	ubicacion_informacion_tecnica_modelo varchar(1000), --seria el anotador o pdf generado
+	ubicacion_informacion_tecnica_modelo text, --seria el anotador o pdf generado
 	fecha_creacion_modelo TIMESTAMP,
-	ubicacion_modelo varchar(1000),
+	ubicacion_modelo text,
 	modelo_deployado boolean ,--si el modelo que se construyo exitosamente ya se encuentra disponible como servicio
-	ubicacion_servicio varchar(1000),
+	ubicacion_servicio text,
 	fecha_creacion_servicio TIMESTAMP
 	);
 
