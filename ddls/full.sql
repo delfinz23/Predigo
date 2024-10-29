@@ -256,3 +256,8 @@ COMMENT ON COLUMN public.calificacion_sistema_financiero.nombre IS 'Nombre de la
 COMMENT ON COLUMN public.calificacion_sistema_financiero.descripcion IS 'Descripcion sobre de la Calificacion del Sistema Financiero de una Persona';
 
 
+COMMENT ON COLUMN public.departamento.id IS 'Codigo Unico del Departamento geografico donde vive la Persona';
+COMMENT ON COLUMN public.departamento.nombre IS 'Nombre del Departamento geografico, que no se repite en la tabla';
+COMMENT ON COLUMN public.departamento.descripcion IS 'Descripcion sobre del Departamento geografico donde vive la Persona';
+
+
