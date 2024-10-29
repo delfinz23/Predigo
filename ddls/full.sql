@@ -3,6 +3,7 @@ drop database if exists predigo ;
 
 CREATE DATABASE predigo ;
 
+
 drop table if exists proyectos_experimentos ;
 
 drop table if exists proyectos_datasets ;
@@ -225,3 +226,22 @@ create table proyectos_experimentos (
 	id_experimento  INTEGER REFERENCES experimentos(id) ON DELETE cascade not null,
 	fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 	);
+	
+	
+
+COMMENT ON COLUMN public.usuarios.id IS 'Codigo Unico del Usuario Generada de Forma Automatica';
+COMMENT ON COLUMN public.usuarios.nombre_usuario IS 'Nombre del Usuario cuyo valor no se repite en la tabla';
+COMMENT ON COLUMN public.usuarios.nombre_completo IS 'Nombre Completo del Usuario';
+COMMENT ON COLUMN public.usuarios.id_perfil IS 'Codigo del Perfil del Usuario';
+COMMENT ON COLUMN public.usuarios.activo IS 'Si el usuario se encuentra activo o no';
+COMMENT ON COLUMN public.usuarios.fecha_creacion IS 'Fecha de Alta del Usuario';
+COMMENT ON COLUMN public.usuarios.fecha_baja IS 'Fecha de Baja del Usuario';
+COMMENT ON COLUMN public.usuarios.email IS 'Correo Electronico del Usuario';
+COMMENT ON COLUMN public.usuarios.clave_acceso IS 'Clave de Acceso del Usuario';
+
+
+COMMENT ON COLUMN public.accesos.id IS 'Codigo Unico del Acceso del Usuario al Sistema Generada de Forma Automatica';
+COMMENT ON COLUMN public.accesos.id_usuario IS 'Codigo del Usuario';
+COMMENT ON COLUMN public.accesos.fecha_hora IS 'Fecha y Hora del Acceso al Sistema';
+COMMENT ON COLUMN public.accesos.exitoso IS 'Si el Acceso del Usuario fue exitoso o no';
+COMMENT ON COLUMN public.accesos.motivo_fallo IS 'Si el Acceso del Usuario no fue exitoso, registrar el error detectado';
