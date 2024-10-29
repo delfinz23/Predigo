@@ -245,3 +245,8 @@ COMMENT ON COLUMN public.accesos.id_usuario IS 'Codigo del Usuario';
 COMMENT ON COLUMN public.accesos.fecha_hora IS 'Fecha y Hora del Acceso al Sistema';
 COMMENT ON COLUMN public.accesos.exitoso IS 'Si el Acceso del Usuario fue exitoso o no';
 COMMENT ON COLUMN public.accesos.motivo_fallo IS 'Si el Acceso del Usuario no fue exitoso, registrar el error detectado';
+
+
+COMMENT ON COLUMN public.actividad_economica.id IS 'Codigo Unico de la Actividad Economica de una Persona';
+COMMENT ON COLUMN public.actividad_economica.nombre IS 'Nombre de la Actividad Economica de una Persona, que no se repite en la tabla';
+COMMENT ON COLUMN public.actividad_economica.descripcion IS 'Descripcion sobre de la Actividad Economica de una Persona';
