@@ -15,30 +15,35 @@ WHERE table_type = 'BASE TABLE'
 AND table_schema NOT IN ('pg_catalog', 'information_schema');
 
 
-select a.table_name tabla
-, a.ordinal_position orden
-, a.column_name columna
-, a.data_type 
-, case when a.numeric_scale > 0 then a.data_type ||'( '|| numeric_precision||', '||numeric_scale||')' 
-	   when a.data_type = 'character varying' then 'varchar('||a.character_maximum_length||')'
-	   when a.data_type = 'integer' then a.data_type 
-	   when a.data_type = 'timestamp without time zone' then 'timestamp' 
-	   else a.data_type end tipo_dato
-, '' clave_principal
-, a.is_nullable	nulo 
-, a.c
-FROM information_schema.columns a
-where a.table_schema NOT IN ('pg_catalog', 'information_schema')
-order by a.table_name
-, a.ordinal_position
+select c.table_name tabla
+, c.ordinal_position orden
+, c.column_name columna
+, case when c.numeric_scale > 0 then c.data_type ||'( '|| c.numeric_precision||', '||c.numeric_scale||')' 
+	   when c.data_type = 'character varying' then 'varchar('||c.character_maximum_length||')'
+	   when c.data_type = 'integer' then c.data_type 
+	   when c.data_type = 'timestamp without time zone' then 'timestamp' 
+	   else c.data_type end tipo_dato
+, case when c.ordinal_position = 1 then 'Si' end clave_principal
+, c.is_nullable	nulo
+, d.description descripcion
+FROM information_schema.columns c
+inner join pg_class c1 on c.table_name=c1.relname
+inner join pg_catalog.pg_namespace n on c.table_schema=n.nspname and c1.relnamespace=n.oid 
+left join pg_catalog.pg_description d on d.objsubid=c.ordinal_position and d.objoid=c1.oid
+
+where c.table_schema NOT IN ('pg_catalog', 'information_schema')
+order by c.table_name
+, c.ordinal_position
 
 
-select *
-from information_schema.table_constraints
 
-SELECT c.column_name, c.data_type
-FROM information_schema.table_constraints tc 
-JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) 
-JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema
-  AND tc.table_name = c.table_name AND ccu.column_name = c.column_name
-WHERE constraint_type = 'PRIMARY KEY' and tc.table_name = 'usuarios';
+
+
+select c.table_schema,c.table_name,c.column_name,c.ordinal_position,c.column_default,c.data_type,d.description
+from information_schema.columns c
+inner join pg_class c1 on c.table_name=c1.relname
+inner join pg_catalog.pg_namespace n on c.table_schema=n.nspname and c1.relnamespace=n.oid 
+left join pg_catalog.pg_description d on d.objsubid=c.ordinal_position and d.objoid=c1.oid
+where c.table_schema NOT IN ('pg_catalog', 'information_schema')
+order by c.table_name 
+, c.ordinal_position 
