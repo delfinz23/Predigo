@@ -268,5 +268,9 @@ COMMENT ON COLUMN public.estado_civil.id IS 'Codigo Unico del Estado Civil de la
 COMMENT ON COLUMN public.estado_civil.nombre IS 'Nombre del Estado Civil, que no se repite en la tabla';
 COMMENT ON COLUMN public.estado_civil.descripcion IS 'Descripcion sobre el Estado Civil de la Persona';
 
+COMMENT ON COLUMN public.nivel_academico.id IS 'Codigo Unico del Nivel Academico de la Persona';
+COMMENT ON COLUMN public.nivel_academico.nombre IS 'Nombre del Nivel Academico, que no se repite en la tabla';
+COMMENT ON COLUMN public.nivel_academico.descripcion IS 'Descripcion sobre el Nivel Academico de la Persona';
+
 
 
