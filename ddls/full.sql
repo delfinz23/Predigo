@@ -264,4 +264,9 @@ COMMENT ON COLUMN public.ciudad.id IS 'Codigo Unico de la Ciudad geografica dond
 COMMENT ON COLUMN public.ciudad.nombre IS 'Nombre de la Ciudad geografica, que no se repite en la tabla';
 COMMENT ON COLUMN public.ciudad.descripcion IS 'Descripcion sobre la Ciudad geografica donde vive la Persona';
 
+COMMENT ON COLUMN public.estado_civil.id IS 'Codigo Unico del Estado Civil de la Persona';
+COMMENT ON COLUMN public.estado_civil.nombre IS 'Nombre del Estado Civil, que no se repite en la tabla';
+COMMENT ON COLUMN public.estado_civil.descripcion IS 'Descripcion sobre el Estado Civil de la Persona';
+
+
 
