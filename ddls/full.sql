@@ -277,3 +277,12 @@ COMMENT ON COLUMN public.perfil.nombre IS 'Nombre del Perfil, que no se repite e
 COMMENT ON COLUMN public.perfil.descripcion IS 'Descripcion sobre el Perfil de la Persona en el Sistema';
 
 
+COMMENT ON COLUMN public.proyectos.id IS 'Codigo Unico del Proyecto de un Usuario(Cliente)';
+COMMENT ON COLUMN public.proyectos.nombre IS 'Nombre del Proyecto, que no se repite en la tabla';
+COMMENT ON COLUMN public.proyectos.descripcion IS 'Descripcion sobre el Proyecto';
+COMMENT ON COLUMN public.proyectos.id_usuario IS 'Codigo del Usuario(Cliente) del Proyecto';
+COMMENT ON COLUMN public.proyectos.activo IS 'Si el proyecto se encuenta activo';
+COMMENT ON COLUMN public.proyectos.fecha_creacion IS 'Fecha de Creacion del Proyecto';
+COMMENT ON COLUMN public.proyectos.fecha_baja IS 'Fecha de Baja del Proyecto';
+
+
