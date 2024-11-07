@@ -260,4 +260,8 @@ COMMENT ON COLUMN public.departamento.id IS 'Codigo Unico del Departamento geogr
 COMMENT ON COLUMN public.departamento.nombre IS 'Nombre del Departamento geografico, que no se repite en la tabla';
 COMMENT ON COLUMN public.departamento.descripcion IS 'Descripcion sobre del Departamento geografico donde vive la Persona';
 
+COMMENT ON COLUMN public.ciudad.id IS 'Codigo Unico de la Ciudad geografica donde vive la Persona';
+COMMENT ON COLUMN public.ciudad.nombre IS 'Nombre de la Ciudad geografica, que no se repite en la tabla';
+COMMENT ON COLUMN public.ciudad.descripcion IS 'Descripcion sobre la Ciudad geografica donde vive la Persona';
+
 
